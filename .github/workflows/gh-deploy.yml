@@ -1,18 +1,20 @@
-name: Publish docs via GitHub Pages
+name: Publish docs via GitHub Pages  # 工作流名称
 on:
   push:
     branches:
-      - main
+      - main  # 当推送到 main 分支时，触发此工作流
+
 jobs:
   build:
-    name: Deploy docs
-    runs-on: ubuntu-latest
+    name: Deploy docs  # 任务名称
+    runs-on: ubuntu-latest  # 在最新的 Ubuntu 操作系统环境上运行
     steps:
       - name: Checkout main
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  # 使用 GitHub 官方提供的 checkout action，将代码检出到 runner
+
       - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master  # 使用第三方 action 部署 MkDocs 文档到 GitHub Pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EXTRA_PACKAGES: build-base
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 生成的 token 进行授权，上传到 GitHub Pages
+          EXTRA_PACKAGES: build-base  # 可选，安装额外的依赖（这里是 build-base）
 
