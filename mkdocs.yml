@@ -1,0 +1,30 @@
+site_name: 你好世界
+nav:
+  - 主页: index.md
+  - 文档:
+      - 安装指南: installation.md
+      - 用户指南: user-guide.md
+  - 关于我们: about.md
+
+theme:
+  name: material  # 使用第三方主题 'material'
+  language: zh    # 设置语言为中文
+  hljs_languages:
+    - yaml        # 使用 'yaml' 作为代码高亮语言
+
+markdown_extensions:
+  - toc:
+      permalink: true   # 为目录添加链接
+  - pymdownx.highlight:
+      linenums: true      # 显示行号
+      anchor_linenums: true  # 行号带有锚点
+  - pymdownx.inlinehilite   # 允许行内高亮
+  - pymdownx.superfences     # 支持高级代码块
+
+
+markdown_extensions:
+  - toc:
+      permalink: true
+
+
+
